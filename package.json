@@ -4,8 +4,8 @@
   "description": "simple rxjs koans",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/*.ts -r ts-node/register",
-    "test:watch": "mocha src/*.ts -r ts-node/register --watch --watch-files src, src/**/*.ts"
+    "test": "mocha src/index.ts -r ts-node/register",
+    "test:watch": "mocha src/index.ts -r ts-node/register --watch --watch-files src, src/**/*.ts"
   },
   "repository": {
     "type": "git",
