@@ -1,0 +1,20 @@
+{
+  "name": "rxjs-koans",
+  "version": "1.0.0",
+  "description": "simple rxjs koans",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Epikem/rxjs-koans.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Epikem/rxjs-koans/issues"
+  },
+  "homepage": "https://github.com/Epikem/rxjs-koans#readme"
+}
