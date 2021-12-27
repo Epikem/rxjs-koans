@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import fs from 'fs';
 
 import Mocha from 'mocha';
+import Test01 from './tests/01_simple_observables'
 const ___ = "fill this with correct answer";
 const CheckpointPath = './checkpoint';
 
@@ -13,14 +14,12 @@ var Test = Mocha.Test;
 var Suite = Mocha.Suite;
 
 var mocha = new Mocha();
-var suite = Suite.create(mocha.suite, 'My test suite with dynamic test cases');
+var suite: Mocha.Suite;
 var currentLevel = 0;
 
 const Tests = [
-    new Test('val', function () {
-        expect('val').to.equal('val');
-    }),
-    new Test('val', function () {
+    new Test('Test 01 - simple observables', Test01),
+    new Test('Test 02', function () {
         expect('val').to.equal(___);
         return true;
     })
@@ -35,15 +34,18 @@ function init() {
     }
     
     currentLevel = +fs.readFileSync(CheckpointPath, { encoding: 'utf8' });
-
+    suite = Suite.create(mocha.suite, `Question. `);
+    
     if (currentLevel === 0) {
-        suite.addTest(Tests[0]);
+        suite.addTest(Tests[0])
     }
     
     if (currentLevel === 1) {
         suite.addTest(Tests[1]);
     }
 }
+
+init();
 
 var runner = mocha.run();
 
@@ -55,8 +57,10 @@ runner.on('fail', () => {
 
 runner.on('pass', () => {
     setTimeout(() => {
-        console.error('test SUCCESS!');
-        
+        console.info('congratulations. test PASSED!');
+        console.info('proceeding to next level...');
+    }, 1000);
+    setTimeout(() => {
         currentLevel = +currentLevel + 1;
 
         console.log('current level: ', currentLevel);
@@ -66,10 +70,9 @@ runner.on('pass', () => {
         suite.addTest(Tests[currentLevel]);
 
         fs.writeFileSync(CheckpointPath, ''+currentLevel, { encoding: 'utf-8' });
-    }, 1000);
+    }, 5000);
 })
 
-init();
 
 
 // describe('index.ts 테스트', () => {
