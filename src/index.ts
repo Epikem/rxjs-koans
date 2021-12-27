@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 import fs from 'fs';
 
 import Mocha from 'mocha';
-import Test01 from './tests/01_simple_observables'
+import Test01 from './tests/01_simple_observables';
+import Test02 from './tests/02_periodic_events';
 const ___ = "fill this with correct answer";
 const CheckpointPath = './checkpoint';
 
@@ -14,15 +15,13 @@ var Test = Mocha.Test;
 var Suite = Mocha.Suite;
 
 var mocha = new Mocha();
+mocha.timeout('10s');
 var suite: Mocha.Suite;
 var currentLevel = 0;
 
 const Tests = [
     new Test('Test 01 - simple observables', Test01),
-    new Test('Test 02', function () {
-        expect('val').to.equal(___);
-        return true;
-    })
+    new Test('Test 02 - periodic events', Test02)
 ]
 
 function init() {
@@ -43,6 +42,8 @@ function init() {
     if (currentLevel === 1) {
         suite.addTest(Tests[1]);
     }
+
+    suite.timeout('10s');
 }
 
 init();
@@ -62,6 +63,11 @@ runner.on('pass', () => {
     }, 1000);
     setTimeout(() => {
         currentLevel = +currentLevel + 1;
+
+        if (currentLevel === Tests.length) {
+            console.info('congratulations. you have passed all levels!');
+            return;
+        }
 
         console.log('current level: ', currentLevel);
 
