@@ -35,13 +35,7 @@ function init() {
     currentLevel = +fs.readFileSync(CheckpointPath, { encoding: 'utf8' });
     suite = Suite.create(mocha.suite, `Question. `);
     
-    if (currentLevel === 0) {
-        suite.addTest(Tests[0])
-    }
-    
-    if (currentLevel === 1) {
-        suite.addTest(Tests[1]);
-    }
+    suite.addTest(Tests[currentLevel])
 
     suite.timeout('10s');
 }
