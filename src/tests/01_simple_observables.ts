@@ -8,7 +8,7 @@ const observable = new Observable<string>(subscriber => {
     subscriber.next('orange');
     subscriber.next('banana');
     setTimeout(() => {
-        subscriber.next('pineapple');
+        subscriber.next(___);
         subscriber.complete();
     }, 1000);
 });
