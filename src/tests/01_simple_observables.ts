@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { Observable } from "rxjs";
 const ___ = "fill this with correct answer";
-const map: Array<string> = new Array();
+const list: Array<string> = new Array();
 
 const observable = new Observable<string>(subscriber => {
     subscriber.next('apple');
@@ -18,14 +18,14 @@ export default function () {
     observable.subscribe({
         next(item) {
             console.log('received value ' + item);
-            map.push(item)
+            list.push(item)
         },
         error(err) {
             console.error('err:', err);
         },
         complete() {
             console.log('done');
-            expect(map).to.include.members(['apple', 'orange', 'banana', 'pineapple']);
+            expect(list).to.include.members(['apple', 'orange', 'banana', 'pineapple']);
         }
     });
     console.log('after subscribe');
