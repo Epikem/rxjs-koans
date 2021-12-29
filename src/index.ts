@@ -9,6 +9,7 @@ import Mocha from 'mocha';
 import Test01 from './tests/01_simple_observables';
 import Test02 from './tests/02_periodic_events';
 import Test03 from './tests/03_cancelling_subscription';
+import Test04 from './tests/04_creation_operators';
 const ___ = "fill this with correct answer";
 const CheckpointPath = './checkpoint';
 
@@ -23,7 +24,8 @@ var currentLevel = 0;
 const Tests = [
     new Test('Test 01 - simple observables', Test01),
     new Test('Test 02 - periodic events', Test02),
-    new Test('Test 03 - cancelling subscription', Test03)
+    new Test('Test 03 - cancelling subscription', Test03),
+    new Test('Test 04 - creation operators', Test04),
 ]
 
 function init() {
