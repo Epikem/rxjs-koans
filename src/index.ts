@@ -1,8 +1,3 @@
-import { expect } from 'chai';
-import Rx from 'rxjs';
-import { fromEvent } from 'rxjs';
-import { scan } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import fs from 'fs';
 
 import Mocha from 'mocha';
