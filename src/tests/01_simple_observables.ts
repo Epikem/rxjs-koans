@@ -13,7 +13,7 @@ const observable = new Observable<string>(subscriber => {
     }, 1000);
 });
 
-export default function () {
+export default function (done: Mocha.Done) {
     console.log('before subscribe');
     observable.subscribe({
         next(item) {
@@ -26,6 +26,7 @@ export default function () {
         complete() {
             console.log('done');
             expect(list).to.include.members(['apple', 'orange', 'banana', 'pineapple']);
+            done();
         }
     });
     console.log('after subscribe');
