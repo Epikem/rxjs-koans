@@ -4,7 +4,8 @@ import Mocha from 'mocha';
 import Test01 from './tests/01_simple_observables';
 import Test02 from './tests/02_periodic_events';
 import Test03 from './tests/03_cancelling_subscription';
-import Test04 from './tests/04_creation_operators';
+import Test04 from './tests/04_creation_operators_of';
+
 const ___ = "fill this with correct answer";
 const CheckpointPath = './checkpoint';
 
