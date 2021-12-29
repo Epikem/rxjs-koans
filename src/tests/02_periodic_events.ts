@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 const ___ = "fill this with correct answer";
 const list: Array<string> = new Array();
 
-const observable = new Observable<string>(subscriber => {
+const observable$ = new Observable<string>(subscriber => {
     setInterval(() => {
         subscriber.next(___);
     }, 1000);
@@ -17,7 +17,7 @@ const observable = new Observable<string>(subscriber => {
 export default function (done: Mocha.Done) {
     let count = 0;
     console.log('before subscribe');
-    observable.subscribe({
+    observable$.subscribe({
         next(item) {
             console.log('received value:' + item);
             list.push(item);
