@@ -1,4 +1,5 @@
 import Mocha, { Test } from 'mocha';
+import { headerCase } from 'change-case';
 
 const Paths = {
     Test01: '01_simple_observables',
@@ -12,7 +13,7 @@ export async function load_tests () {
 
     for (let [key, value] of Object.entries(Paths)) {
         console.log('loading test', value);
-        const test = new Test('title', await import(`./${value}`));
+        const test = new Test(headerCase(value), await import(`./${value}`));
         Tests.push(test);
     }
 
