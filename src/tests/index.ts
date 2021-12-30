@@ -7,6 +7,7 @@ const Paths = {
     Test03: '03_cancelling_subscription',
     Test04: '04_creation_operators_of',
     TestAutoComplete: 'project_autocomplete',
+    TestAutoCompleteDup: 'project_autocomplete_dup',
 }
 
 export async function load_tests() {
