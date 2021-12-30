@@ -1,10 +1,11 @@
 import { expect } from "chai";
 import { map, of } from "rxjs";
 const ___ = "fill this with correct answer";
+const ____ = 0;
 const list: Array<number> = new Array();
 
 export default function (done: Mocha.Done) {
-    of(1, 2)
+    of(1, 2, ____)
         .pipe(map(x => x*x))
         .subscribe(v => {
             console.log(`value: ${v}`)
