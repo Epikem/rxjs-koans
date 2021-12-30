@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha src/index.ts -r ts-node/register",
-    "test:watch": "mocha src/index.ts -r ts-node/register --watch --watch-files src, src/**/*.ts",
-    "test:nodemon": "nodemon --watch \"src/**/*\" --watch \"checkpoint\" --ext \"ts\" --exec \"clear; ts-node src/index.ts\""
+    "test:watch": "nodemon --watch \"src/**/*\" --watch \"checkpoint\" --ext \"ts\" --exec \"clear; ts-node src/index.ts\""
   },
   "repository": {
     "type": "git",
