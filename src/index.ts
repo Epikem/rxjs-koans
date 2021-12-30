@@ -8,7 +8,6 @@ const CheckpointPath = './checkpoint';
 var Suite = Mocha.Suite;
 
 var mocha = new Mocha();
-mocha.timeout('10s');
 var suite: Mocha.Suite;
 var currentLevel = 0;
 var tests: Mocha.Test[] = [];
@@ -25,9 +24,10 @@ async function init() {
     currentLevel = +fs.readFileSync(CheckpointPath, { encoding: 'utf8' });
     suite = Suite.create(mocha.suite, `Question. `);
     
-    suite.addTest(tests[currentLevel]);
-
+    mocha.timeout('10s');
     suite.timeout('10s');
+
+    suite.addTest(tests[currentLevel]);
 
     mocha.run()
         .on('fail', () => {
