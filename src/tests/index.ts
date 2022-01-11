@@ -6,8 +6,11 @@ const Paths = {
     Test02: '02_periodic_events',
     Test03: '03_cancelling_subscription',
     Test04: '04_creation_operators_of',
-    TestAutoComplete: 'project_autocomplete',
-    TestAutoCompleteDup: 'project_autocomplete_dup',
+    Test05: '05_subjects',
+    Test06: '06_scheduler',
+    Test07_AutoComplete: 'project_autocomplete',
+    Test08_TestAutoCompleteDup: 'project_autocomplete_dup',
+    Test09_ProjectAPILimit: 'project_api_limit',
 }
 
 export async function load_tests() {
