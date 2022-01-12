@@ -8,9 +8,9 @@ const Paths = {
     Test04: '04_creation_operators_of',
     Test05: '05_subjects',
     Test06: '06_scheduler',
-    Test07_AutoComplete: 'project_autocomplete',
-    Test08_TestAutoCompleteDup: 'project_autocomplete_dup',
-    Test09_ProjectAPILimit: 'project_api_limit',
+    Test07_AutoComplete: '07_project_autocomplete',
+    Test08_TestAutoCompleteDup: '08_project_autocomplete_dup',
+    Test09_ProjectScheduledJob: '09_project_scheduled_job',
 }
 
 export async function load_tests() {
