@@ -14,11 +14,11 @@ const Paths = {
 }
 
 export async function load_tests() {
-    const Tests: Mocha.Test[] = [];
+    const tests: Mocha.Test[] = [];
 
-    for (let [key, value] of Object.entries(Paths)) {
+    for (let [_key, value] of Object.entries(Paths)) {
         console.log('loading test', `./${value}`);
-        Tests.push(
+        tests.push(
             new Test(
                 headerCase(value),
                 (await import(`./${value}`)).default as AsyncFunc
@@ -26,5 +26,18 @@ export async function load_tests() {
         );
     }
 
-    return Tests;
+    return tests;
+}
+
+export async function load_current_level_test(current_level: number) {
+    const current_level_test = Object.entries(Paths).filter(([key, value]) => {
+        return value.substring(0, 2) === `${current_level + 1}`.padStart(2, '0');
+    })[0];
+
+    console.log('loading test', `./${current_level_test[1]}`);
+
+    return new Test(
+        headerCase(current_level_test[1]),
+        (await import(`./${current_level_test[1]}`)).default as AsyncFunc
+    ) as Mocha.Test;
 }
