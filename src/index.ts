@@ -20,10 +20,10 @@ async function init() {
         fs.writeFileSync(CheckpointPath, '0');
         console.log('checkpoint file created');
     }
-    
+
     currentLevel = +fs.readFileSync(CheckpointPath, { encoding: 'utf8' });
     suite = Suite.create(mocha.suite, `Question. `);
-    
+
     mocha.timeout('10s');
     suite.timeout('10s');
 
@@ -36,6 +36,8 @@ async function init() {
             setTimeout(() => {
                 console.error('test FAILED!');
             }, 1000);
+            // exit
+            process.exit(1);
         })
         .on('pass', () => {
             setTimeout(() => {
@@ -44,22 +46,22 @@ async function init() {
             }, 1000);
             setTimeout(async () => {
                 currentLevel = +currentLevel + 1;
-        
+
                 if (currentLevel === testCnt) {
                     console.info('congratulations. you have passed all levels!');
                     return;
                 }
-        
+
                 console.log('current level: ', currentLevel);
-        
+
                 suite.tests = [];
-        
+
                 suite.addTest(await load_current_level_test(currentLevel));
-        
+
                 fs.writeFileSync(CheckpointPath, ''+currentLevel, { encoding: 'utf-8' });
             }, 5000);
         })
-        
+
 }
 
 init();

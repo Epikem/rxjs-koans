@@ -10,7 +10,7 @@ const Paths = {
     Test06: '06_scheduler',
     Test07_AutoComplete: '07_project_autocomplete',
     Test08_TestAutoCompleteDup: '08_project_autocomplete_dup',
-    Test09_ProjectScheduledJob: '09_project_scheduled_job',
+    Test09_ProjectScheduledJob: '09_test_clean_rxjs',
 }
 
 export async function load_tests() {

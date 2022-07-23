@@ -6,11 +6,11 @@ const list: Array<string> = new Array();
 const observable$ = new Observable<string>(subscriber => {
     setInterval(() => {
         subscriber.next(___);
-    }, 1000);
+    }, 1500);
 
     setTimeout(() => {
         // uncomment below line and change ___ to correct method
-        // subscriber.___(); 
+        // subscriber.___();
     }, 5000);
 });
 
