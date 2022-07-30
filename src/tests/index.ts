@@ -10,7 +10,8 @@ const Paths = {
     Test06: '06_scheduler',
     Test07_AutoComplete: '07_project_autocomplete',
     Test08_TestAutoCompleteDup: '08_project_autocomplete_dup',
-    Test09_ProjectScheduledJob: '09_test_clean_rxjs',
+    Test09_TestCleanArchitecture: './projects/09_test_clean_architecture',
+    Test10_TestCleanRxJs: './projects/10_test_clean_rxjs_redis/index',
 }
 
 export async function load_tests() {
@@ -31,7 +32,7 @@ export async function load_tests() {
 
 export async function load_current_level_test(current_level: number) {
     const current_level_test = Object.entries(Paths).filter(([key, value]) => {
-        return value.substring(0, 2) === `${current_level + 1}`.padStart(2, '0');
+        return key.substring(4, 6) === `${current_level + 1}`.padStart(2, '0');
     })[0];
 
     console.log('loading test', `./${current_level_test[1]}`);

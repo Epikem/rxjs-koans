@@ -24,8 +24,8 @@ async function init() {
     currentLevel = +fs.readFileSync(CheckpointPath, { encoding: 'utf8' });
     suite = Suite.create(mocha.suite, `Question. `);
 
-    mocha.timeout('10s');
-    suite.timeout('10s');
+    mocha.timeout('100s');
+    suite.timeout('100s');
 
     // tests = await load_current_level_test(currentLevel);
     // suite.addTest(tests[currentLevel]);
