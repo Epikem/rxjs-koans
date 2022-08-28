@@ -11,7 +11,8 @@ const Paths = {
     Test07_AutoComplete: '07_project_autocomplete',
     Test08_TestAutoCompleteDup: '08_project_autocomplete_dup',
     Test09_TestCleanArchitecture: './projects/09_test_clean_architecture',
-    Test10_TestCleanRxJs: './projects/10_test_clean_rxjs_redis/index',
+    Test10_TestFunctionalInterface: './projects/10_test_functional_interface',
+    // Test10_TestCleanRxJs: './projects/10_test_clean_rxjs_redis/index',
 }
 
 export async function load_tests() {

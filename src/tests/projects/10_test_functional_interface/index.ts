@@ -1,3 +1,4 @@
+import { tap } from "rxjs";
 import { Main } from "./main";
 
 const ___ = "fill this with correct answer";
@@ -7,5 +8,7 @@ export default function (done: Mocha.Done) {
     console.log('started');
 
     const main = new Main();
-    main.run();
+    // main.run();
+
+    main.run$().subscribe();
 }
